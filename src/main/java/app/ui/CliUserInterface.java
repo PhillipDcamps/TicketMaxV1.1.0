@@ -1,9 +1,9 @@
 package app.ui;
 
-import app.repository.UserRepositoryImplCollection;
-import app.service.UserServiceImpl;
-import app.service.inputports.UserService;
-import app.service.outputports.UserRepository;
+/**import app.repository.UserRepositoryImplCollection;**/
+/**import app.service.UserServiceImpl;**/
+/**import app.service.inputports.UserService;**/
+/**import app.service.outputports.UserRepository;**/
 import app.service.validators.DataTypeValidator;
 import app.view.SeatView;
 import app.view.UserView;
@@ -61,13 +61,15 @@ public class CliUserInterface {
     public void userMenu(){
 
         int option = DataTypeValidator.validateInt("""
-                Seleccione 1. registrar usuario
-                2. Consultar Usuario por id
-                3. Consultar todos los usuarios
-                4. Actualizar Usuario
-                5. Eliminar Usuario """
+        Seleccione
+        1. Registrar usuario
+        2. Consultar usuario por id
+        3. Consultar todos los usuarios
+        4. Actualizar usuario
+        5. Eliminar usuario
+        6. Consultar cantidad de usuarios
+        """);
 
-        );
 
         switch (option){
             case 1:
@@ -76,11 +78,11 @@ public class CliUserInterface {
                 break;
             case 2:
                 int id = DataTypeValidator.validateInt("Ingrese el id del usuario a consultar");
-                userView.selectUserById();
+                userView.selectUserById(id);
                 break;
             case 3:
                 System.out.println("Consultar todos los usuarios");
-                userView.countUsers();
+                userView.selectUsers();
                 break;
             case 4:
                 userView.updateUser();
@@ -88,6 +90,9 @@ public class CliUserInterface {
             case 5:
                 int deleteId = DataTypeValidator.validateInt("Ingrese el id del usuario a eliminar");
                 userView.deleteUser(deleteId);
+                break;
+            case 6:
+                userView.countUsers();
                 break;
 
             default:

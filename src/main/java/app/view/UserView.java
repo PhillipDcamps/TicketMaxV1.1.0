@@ -5,10 +5,10 @@ import app.domain.enums.SelectPreferencesEnum;
 import app.service.helpers.SetUserState;
 import app.service.inputports.UserService;
 import app.service.validators.DataTypeValidator;
-import app.domain.User;
+/**import app.domain.User;**/
 
-import java.util.ArrayList;
-import java.util.List;
+/**import java.util.ArrayList;**/
+/**import java.util.List;**/
 
 public class UserView {
 
@@ -55,7 +55,7 @@ public class UserView {
     public void selectUserById(int id) {
         User user = userService.selectUserById(id);
         if (user == null){
-            System.out.println("No existe un usuario con Id" + id);
+            System.out.println("No existe un usuario con Id " + id);
             return;
         }
 
@@ -63,7 +63,7 @@ public class UserView {
     }
 
 
-    public void selectUserById(){ //selectUser()
+    public void selectUsers(){ //selectUser()
 
         userService.selectUsers();
 
@@ -99,7 +99,7 @@ public class UserView {
 
     public void deleteUser(int id){
         if (userService.deleteUser(id)){
-            System.out.println("Usuario con id " + id + "eliminado correctamente");
+            System.out.println("Usuario con id " + id + " eliminado correctamente");
         } else {
             System.out.println("No existe un usuario con id " + id);
         }
